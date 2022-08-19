@@ -43,7 +43,7 @@ class addPage extends StatelessWidget {
                             padding: EdgeInsets.fromLTRB(22, 12, 0, 13),
                             child: Image.asset("assets/image/google.png")),
                         Padding(
-                            padding: EdgeInsets.fromLTRB(51, 15, 0, 17),
+                            padding: EdgeInsets.fromLTRB(52.5, 15, 0, 17),
                             child: Text(
                               "구글 로그인",
                               style: TextStyle(

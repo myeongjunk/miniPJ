@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:minipj/Widget/backButton.dart';
+import 'package:minipj/Widget/mybackbutton.dart';
 
 class addPage extends StatelessWidget {
   const addPage({Key? key}) : super(key: key);
@@ -8,10 +8,10 @@ class addPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: SizedBox(
+        leading: const SizedBox(
           width: 9.47,
           height: 16.22,
-          child: backButton(),
+          child: mybackbutton(),
         ),
         backgroundColor: Colors.white,
         elevation: 0.0,
@@ -21,10 +21,10 @@ class addPage extends StatelessWidget {
         color: Colors.white,
         child: Column(
           children: <Widget>[
-            Center(
+            const Center(
               child: Padding(
                 padding: EdgeInsets.fromLTRB(0, 2, 0, 0),
-                child: const Text(
+                child: Text(
                   '용어 추가 요청',
                   style: TextStyle(
                     fontFamily: 'PretendardVariable',
@@ -36,13 +36,13 @@ class addPage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(24, 30, 24, 26),
+              padding: const EdgeInsets.fromLTRB(24, 30, 24, 26),
               child: Container(
                 child: Column(
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                      children: const <Widget>[
                         Text(
                           '단어 이름',
                           style: TextStyle(
@@ -54,9 +54,9 @@ class addPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.symmetric(vertical: 14),
-                      child: const SizedBox(
+                      child: SizedBox(
                         width: 327,
                         child: TextField(
                           decoration: InputDecoration(
@@ -84,7 +84,7 @@ class addPage extends StatelessWidget {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                      children: const <Widget>[
                         Padding(
                           padding: EdgeInsets.only(top: 22),
                           child: Text(
@@ -99,11 +99,11 @@ class addPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.only(
                         top: 14,
                       ),
-                      child: const SizedBox(
+                      child: SizedBox(
                         width: 327,
                         child: TextField(
                           decoration: InputDecoration(
@@ -112,6 +112,11 @@ class addPage extends StatelessWidget {
                             fillColor: Color(0xfff5f6f8),
                             border: OutlineInputBorder(),
                             hintText: '내용을 입력해주세요.',
+                            hintStyle: TextStyle(
+                              fontFamily: 'PretendardVariable',
+                              fontWeight: FontWeight.w400,
+                              fontSize: 17,
+                            ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20.0)),
@@ -132,7 +137,7 @@ class addPage extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 291, 0, 100),
+                      padding: const EdgeInsets.fromLTRB(0, 291, 0, 100),
                       child: SizedBox(
                           width: 91,
                           height: 48,
