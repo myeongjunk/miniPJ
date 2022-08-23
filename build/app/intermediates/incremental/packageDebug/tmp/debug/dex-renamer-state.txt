@@ -1,0 +1,4 @@
+#Tue Aug 23 12:06:14 KST 2022
+base.0=/Users/zcoding/vsCode/minipj/minipj/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

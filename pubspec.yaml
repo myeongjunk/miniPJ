@@ -29,6 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  step_progress_indicator: ^1.0.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -97,6 +98,7 @@ flutter:
    - assets/image/bookO.png
    - assets/image/google.png
    - assets/image/divider.png
+   - assets/image/home.png
   
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

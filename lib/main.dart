@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:minipj/Page/addPage.dart';
-import 'package:minipj/Page/mainLoginPage.dart';
-import 'package:minipj/Widget/mybackbutton.dart';
-import 'package:minipj/Widget/text_button.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 void main() {
-  runApp(const minipj());
+  runApp(MaterialApp(
+    title: 'Named routes Demo',
+    initialRoute: '/',
+    routes: {
+      '/': (context) => FirstScreen(),
+      '/second': (context) => SecondScreen(),
+    },
+  ));
 }
 
 class minipj extends StatelessWidget {
@@ -15,136 +19,101 @@ class minipj extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: PJ(),
+      home: FirstScreen(),
       theme: ThemeData(
-        primaryColor: Colors.white,
-        textTheme: TextTheme(
-          bodyText1: TextStyle(
-            color: Colors.black,
-            fontFamily: 'PretendardVariable',
-          ),
-        ),
+        unselectedWidgetColor: Colors.black,
       ),
     );
   }
 }
 
-class PJ extends StatelessWidget {
-  const PJ({Key? key}) : super(key: key);
-
+class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: SizedBox(
-          width: 9.47,
-          height: 16.22,
-          child: mybackbutton(),
+        leading: GestureDetector(
+          onTap: () {
+            //홈화면으로가기
+          },
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(26, 26, 0, 0),
+            child: const ImageIcon(
+              AssetImage("assets/image/home.png"),
+              color: Colors.black,
+            ),
+          ),
         ),
         backgroundColor: Colors.white,
         elevation: 0.0,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.add_circle_outline),
-            color: Colors.black,
-            onPressed: () {
-              GestureDetector(/*용어추가페이지로 이동*/);
-            },
-          )
-        ],
       ),
       body: Container(
           color: Colors.white,
           child: Column(
             children: <Widget>[
-              const Padding(
-                padding: EdgeInsets.fromLTRB(95, 20, 95, 0),
+              Padding(
+                padding: EdgeInsets.fromLTRB(61, 231, 61, 0),
                 child: Text(
-                  '무엇이 궁금한가요?',
+                  '퀴즈를 시작하시겠습니까?',
                   style: TextStyle(
                     fontFamily: 'PretendardVariable',
-                    fontSize: 24,
                     fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(24, 38, 24, 0),
-                child: SizedBox(
-                  width: 327,
-                  height: 44,
-                  child: TextField(
-                    cursorColor: Color(0xffff9119),
-                    decoration: InputDecoration(
-                      counterText: '',
-                      hintText: '내용을 입력해주세요.',
-                      prefixIcon: SizedBox(
-                        width: 18,
-                        height: 18,
-                        child: Icon(Icons.search),
-                      ),
-                      filled: true,
-                      fillColor: Color(0xfff5f6f8),
-                      border: OutlineInputBorder(),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(13.0)),
-                        borderSide:
-                            BorderSide(width: 1, color: Color(0xfff5f6f8)),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(13.0)),
-                        borderSide:
-                            BorderSide(width: 1, color: Color(0xfff5f6f8)),
-                      ),
-                      contentPadding: EdgeInsets.fromLTRB(0, 13, 0, 11),
-                    ),
-                    keyboardType: TextInputType.multiline,
+                    fontSize: 24,
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(24, 7, 33, 1),
-                child: Container(
-                  height: 46,
-                  width: 318,
-                  child: Row(
-                    children: <Widget>[
-                      Padding(
-                          padding: EdgeInsets.only(left: 10),
-                          child: buttonName('전체')),
-                      Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: buttonName('학교생활')),
-                      Padding(
-                          padding: EdgeInsets.only(left: 10),
-                          child: buttonName('강의관련')),
-                      Padding(
-                        padding: EdgeInsets.only(left: 10),
-                        child: buttonName('시설'),
-                      ),
-                    ],
+                padding: EdgeInsets.only(top: 21),
+                child: Text(
+                  "총 10문제가 출제됩니다.",
+                  style: TextStyle(
+                    fontFamily: 'PretendardVariable',
+                    fontWeight: FontWeight.w700,
+                    fontSize: 24,
                   ),
                 ),
               ),
-              SizedBox(
-                width: 327,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  elevation: 0.0,
-                  color: const Color(0xfff5f6f8),
-                  child: const SingleChildScrollView(
-                    child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 24, horizontal: 21),
-                      child: Text(
-                        'aa',
-                        style: TextStyle(
-                          fontFamily: 'PretendardVariable',
-                          fontSize: 15,
-                          fontWeight: FontWeight.w400,
+              Padding(
+                padding: EdgeInsets.fromLTRB(110.5, 248, 110.5, 0),
+                child: SizedBox(
+                  width: 154,
+                  height: 48,
+                  child: OutlinedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/second');
+                    },
+                    child: Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(left: 12),
+                          child: Row(
+                            children: const <Widget>[
+                              Text(
+                                '시작하기',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'PretendardVariable',
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 20,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 4),
+                                child: Icon(
+                                  Icons.arrow_forward_ios_rounded,
+                                  color: Colors.white,
+                                  size: 18,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
+                      ],
+                    ),
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: Color(0xffff9119),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24),
                       ),
                     ),
                   ),
@@ -156,11 +125,285 @@ class PJ extends StatelessWidget {
   }
 }
 
-TextStyle buttonText({bool resposible = false, double? height, Color? color}) {
-  return const TextStyle(
-    color: Colors.black,
-    fontFamily: 'PretendardVariable',
-    fontWeight: FontWeight.w600,
-    fontSize: 20,
-  );
+class SecondScreen extends StatefulWidget {
+  const SecondScreen({Key? key}) : super(key: key);
+
+  @override
+  _SecondScreenState createState() => _SecondScreenState();
+}
+
+class _SecondScreenState extends State<SecondScreen> {
+  bool _isChecked1 = false;
+  bool _isChecked2 = false;
+  bool _isChecked3 = false;
+  bool _isChecked4 = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/');
+          },
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(26, 26, 0, 0),
+            child: ImageIcon(
+              AssetImage("assets/image/home.png"),
+              color: Colors.black,
+            ),
+          ),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+      ),
+      body: Container(
+        color: Colors.white,
+        child: Column(
+          children: [
+            Padding(
+                padding: EdgeInsets.fromLTRB(80, 46, 79, 0),
+                child: Column(
+                  children: const <Widget>[
+                    Center(
+                        child: Text(
+                      '\'한한\'은',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'PretendardVariable',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 28,
+                      ),
+                    )),
+                    Text(
+                      '무엇을 의미할까요?',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'PretendardVariable',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 28,
+                      ),
+                    ),
+                  ],
+                )),
+            Padding(
+              padding: EdgeInsets.fromLTRB(291, 45, 53, 0),
+              child: Text(
+                '1/10',
+                style: TextStyle(
+                  color: Color.fromRGBO(255, 145, 25, 0.3),
+                  fontFamily: 'PretendardVariable',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(53, 6, 52, 0),
+              child: StepProgressIndicator(
+                totalSteps: 10,
+                currentStep: 1,
+                size: 10,
+                padding: 0,
+                selectedColor: Color(0xffff9119),
+                selectedSize: 13,
+                unselectedColor: Color.fromRGBO(255, 145, 25, 0.3),
+                roundedEdges: Radius.circular(10),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(80, 74, 0, 0),
+                  child: Transform.scale(
+                    scale: 2,
+                    child: Theme(
+                        child: Checkbox(
+                            activeColor: Colors.white,
+                            checkColor: Colors.black,
+                            shape: CircleBorder(),
+                            value: _isChecked1,
+                            onChanged: (v) {
+                              setState(() {
+                                _isChecked1 = v!;
+                              });
+                            }),
+                        data: ThemeData(
+                          unselectedWidgetColor: Colors.black,
+                        )),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(36, 74, 0, 0),
+                  child: Text(
+                    '한번 한소리',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'PretendardVariable',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 24,
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(80, 35, 0, 0),
+                  child: Transform.scale(
+                    scale: 2,
+                    child: Theme(
+                        child: Checkbox(
+                            activeColor: Colors.white,
+                            checkColor: Colors.black,
+                            shape: CircleBorder(),
+                            value: _isChecked2,
+                            onChanged: (v) {
+                              setState(() {
+                                _isChecked2 = v!;
+                              });
+                            }),
+                        data: ThemeData(
+                          unselectedWidgetColor: Colors.black,
+                        )),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(36, 35, 0, 0),
+                  child: Text(
+                    '한동대 한식',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'PretendardVariable',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 24,
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(80, 35, 0, 0),
+                  child: Transform.scale(
+                    scale: 2,
+                    child: Theme(
+                        child: Checkbox(
+                            activeColor: Colors.white,
+                            checkColor: Colors.black,
+                            shape: CircleBorder(),
+                            value: _isChecked3,
+                            onChanged: (v) {
+                              setState(() {
+                                _isChecked3 = v!;
+                              });
+                            }),
+                        data: ThemeData(
+                          unselectedWidgetColor: Colors.black,
+                        )),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(36, 35, 0, 0),
+                  child: Text(
+                    '한번에 한큐',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'PretendardVariable',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 24,
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(80, 35, 0, 0),
+                  child: Transform.scale(
+                    scale: 2,
+                    child: Theme(
+                        child: Checkbox(
+                            activeColor: Colors.white,
+                            checkColor: Colors.black,
+                            shape: CircleBorder(),
+                            value: _isChecked4,
+                            onChanged: (v) {
+                              setState(() {
+                                _isChecked4 = v!;
+                              });
+                            }),
+                        data: ThemeData(
+                          unselectedWidgetColor: Colors.black,
+                        )),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(36, 35, 0, 0),
+                  child: Text(
+                    '한동 한바퀴',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'PretendardVariable',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 24,
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 35),
+              child: SizedBox(
+                width: 154,
+                height: 48,
+                child: OutlinedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/second');
+                  },
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(left: 12),
+                        child: Row(
+                          children: const <Widget>[
+                            Text(
+                              '다음으로',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'PretendardVariable',
+                                fontWeight: FontWeight.w600,
+                                fontSize: 20,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 4),
+                              child: Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                color: Colors.white,
+                                size: 18,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  style: OutlinedButton.styleFrom(
+                    backgroundColor: Color(0xff000000),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(24),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
